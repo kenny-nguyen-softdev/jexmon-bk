@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "jexmon_development",
+    "database": "jexmon_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
