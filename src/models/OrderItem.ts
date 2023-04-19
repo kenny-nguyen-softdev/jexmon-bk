@@ -28,7 +28,7 @@ OrderItem.init(
     },
     qty: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -40,7 +40,7 @@ OrderItem.init(
     },
   },
   {
-    tableName: "images",
+    tableName: "order_items",
     sequelize: sequelizeConnection,
     modelName: "OrderItem",
   }

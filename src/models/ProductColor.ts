@@ -36,7 +36,7 @@ ProductColor.init(
     },
   },
   {
-    tableName: "images",
+    tableName: "product_colors",
     sequelize: sequelizeConnection,
     modelName: "ProductColor",
   }
