@@ -4,6 +4,12 @@ import sequelizeConnection from "../db/connection";
 import Order from "./classes/OrderModel";
 Order.init(
   {
+    id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      autoIncrement: true,
+      primaryKey: true,
+      allowNull: false,
+    },
     customer_id: {
       type: DataTypes.INTEGER,
       allowNull: true,

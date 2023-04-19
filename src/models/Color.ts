@@ -4,6 +4,12 @@ import sequelizeConnection from "../db/connection";
 import Color from "./classes/ColorModel";
 Color.init(
   {
+    id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      autoIncrement: true,
+      primaryKey: true,
+      allowNull: false,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: true,

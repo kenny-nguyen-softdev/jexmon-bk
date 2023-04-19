@@ -4,6 +4,12 @@ import sequelizeConnection from "../db/connection";
 import Brand from "./classes/BrandModel";
 Brand.init(
   {
+    id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      autoIncrement: true,
+      primaryKey: true,
+      allowNull: false,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: true,

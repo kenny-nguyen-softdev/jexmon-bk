@@ -6,6 +6,8 @@ export interface ICommentModel extends Sequelize.Model {
   content: string;
   star: string;
   product_id: number;
+  createdAt: Date;
+  updatedAt: Date;
 }
 export interface CommentAttributes {
   id: number;
@@ -14,6 +16,8 @@ export interface CommentAttributes {
   content: string;
   star: string;
   product_id: number;
+  createdAt: Date;
+  updatedAt: Date;
 }
 export type CommentInput = Optional<CommentAttributes, "id">;
 export type CommentOutput = Required<CommentAttributes>;

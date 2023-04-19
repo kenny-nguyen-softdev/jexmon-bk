@@ -8,13 +8,13 @@ import Product from "./Product";
 import Color from "./Color";
 
 const db: any = {};
-db["User"] = User;
-db["Category"] = Category;
-db["Brand"] = Brand;
-db["Image"] = Image;
-db["Comment"] = Comment;
-db["Order"] = Order;
-db["Product"] = Product;
-db["Color"] = Color;
+db.User = User;
+db.Category = Category;
+db.Brand = Brand;
+db.Image = Image;
+db.Comment = Comment;
+db.Order = Order;
+db.Product = Product;
+db.Color = Color;
 
 export default db;

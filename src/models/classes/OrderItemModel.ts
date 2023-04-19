@@ -8,4 +8,6 @@ export default class OrderItem
   public declare product_id: number;
   public declare order_id: number;
   public declare qty: number;
+  public declare createdAt: Date;
+  public declare updatedAt: Date;
 }

@@ -12,4 +12,6 @@ export default class Order
   public declare shipping_phone_number: string;
   public declare payment_method: number;
   public declare shipping_fee: string;
+  public declare createdAt: Date;
+  public declare updatedAt: Date;
 }

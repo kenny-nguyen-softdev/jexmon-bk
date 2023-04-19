@@ -7,8 +7,10 @@ export interface IUserModel extends Sequelize.Model {
   email: string;
   password: string;
   username: string;
-  phong_number: string;
+  phone_number: string;
   address: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 export interface UserAttributes {
   id: number;
@@ -17,8 +19,10 @@ export interface UserAttributes {
   email: string;
   password: string;
   username: string;
-  phong_number: string;
+  phone_number: string;
   address: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 export type UserInput = Optional<UserAttributes, 'id'>;
 export type UserOutput = Required<UserAttributes>;

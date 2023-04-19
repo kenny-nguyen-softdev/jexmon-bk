@@ -10,4 +10,6 @@ export default class Comment
   public declare content: string;
   public declare star: string;
   public declare product_id: number;
+  public declare createdAt: Date;
+  public declare updatedAt: Date;
 }

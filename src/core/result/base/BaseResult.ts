@@ -42,7 +42,7 @@ export class Result<V, E> {
   }
 }
 
-type RepoErrorCode = 404 | 500
+export type RepoErrorCode = 404 | 500 | 200 | 201 | 404 | 503 | 403 | 401 | undefined;
 
 export class RepoError extends Error {
   public statusCode: RepoErrorCode

@@ -4,6 +4,12 @@ import sequelizeConnection from "../db/connection";
 import Image from "./classes/ImageModel";
 Image.init(
   {
+    id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      autoIncrement: true,
+      primaryKey: true,
+      allowNull: false,
+    },
     featured_image: {
       type: DataTypes.STRING,
       allowNull: true,

@@ -10,6 +10,8 @@ export interface IProductModel extends Sequelize.Model {
   featured_image: string;
   category_id: number;
   brand_id: number;
+  createdAt: Date;
+  updatedAt: Date;
 }
 export interface ProductAttributes {
   id: number;
@@ -22,6 +24,8 @@ export interface ProductAttributes {
   featured_image: string;
   category_id: number;
   brand_id: number;
+  createdAt: Date;
+  updatedAt: Date;
 }
 export type ProductInput = Optional<ProductAttributes, "id">;
 export type ProductOutput = Required<ProductAttributes>;

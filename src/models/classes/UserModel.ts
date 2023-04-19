@@ -7,6 +7,8 @@ export default class User extends Model<UserAttributes, UserInput> implements Us
   public declare email: string;
   public declare password: string;
   public declare username: string;
-  public declare phong_number: string;
+  public declare phone_number: string;
   public declare address: string;
+  public declare createdAt: Date;
+  public declare updatedAt: Date;
 }

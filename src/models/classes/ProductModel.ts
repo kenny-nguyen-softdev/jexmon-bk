@@ -14,4 +14,6 @@ export default class Product
   public declare featured_image: string;
   public declare category_id: number;
   public declare brand_id: number;
+  public declare createdAt: Date;
+  public declare updatedAt: Date;
 }

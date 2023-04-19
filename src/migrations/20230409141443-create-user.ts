@@ -29,7 +29,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true,
       },
-      phong_number: {
+      phone_number: {
         type: Sequelize.STRING,
         allowNull: true,
       },

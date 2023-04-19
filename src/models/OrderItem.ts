@@ -4,6 +4,12 @@ import sequelizeConnection from "../db/connection";
 import OrderItem from "./classes/OrderItemModel";
 OrderItem.init(
   {
+    id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      autoIncrement: true,
+      primaryKey: true,
+      allowNull: false,
+    },
     product_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
@@ -19,6 +25,10 @@ OrderItem.init(
         model: "orders",
         key: "id",
       },
+    },
+    qty: {
+      type: DataTypes.INTEGER,
+      allowNull: true
     },
     createdAt: {
       type: DataTypes.DATE,

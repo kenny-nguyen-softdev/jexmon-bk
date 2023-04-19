@@ -4,6 +4,12 @@ import Comment from "./classes/CommentModel";
 import sequelizeConnection from "../db/connection";
 Comment.init(
   {
+    id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      autoIncrement: true,
+      primaryKey: true,
+      allowNull: false,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: true,

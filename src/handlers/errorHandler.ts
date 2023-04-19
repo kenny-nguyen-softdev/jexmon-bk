@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import * as winston from "winston";
+import winston from "winston";
 
 const file = new winston.transports.File({
   filename: "../logs/error.log",

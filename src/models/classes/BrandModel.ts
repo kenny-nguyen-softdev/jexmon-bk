@@ -7,4 +7,6 @@ export default class Brand
   public declare id: number;
   public declare name: string;
   public declare featured_image: string;
+  public declare createdAt: Date;
+  public declare updatedAt: Date;
 }

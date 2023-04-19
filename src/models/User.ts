@@ -30,7 +30,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    phong_number: {
+    phone_number: {
       type: DataTypes.STRING,
       allowNull: true,
     },

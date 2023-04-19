@@ -7,4 +7,6 @@ export default class Image
   public declare id: number;
   public declare featured_image: string;
   public declare product_id: number;
+  public declare createdAt: Date;
+  public declare updatedAt: Date;
 }

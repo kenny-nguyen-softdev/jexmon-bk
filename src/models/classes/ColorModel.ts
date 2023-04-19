@@ -7,4 +7,6 @@ export default class Color
   public declare id: number;
   public declare name: string;
   public declare bar_code: string;
+  public declare createdAt: Date;
+  public declare updatedAt: Date;
 }

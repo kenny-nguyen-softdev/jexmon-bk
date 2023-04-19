@@ -7,4 +7,6 @@ export default class ProductColor
   public declare id: number;
   public declare color_id: number;
   public declare product_id: number;
+  public declare createdAt: Date;
+  public declare updatedAt: Date;
 }

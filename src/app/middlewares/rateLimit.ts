@@ -6,17 +6,19 @@ const rateLimitTime = Number(process.env.RATE_LIMIT_REQUEST) || 100;
 
 export default () => {
   if (env === "production") {
-    return new RateLimit({
-      windowMs: rateLimitTime * 60 * 1000, // 15 minutes
+    return RateLimit({
+      windowMs: rateLimitTime * 60 * 1000, // 1 hour
       max: rateLimitRequest, // limit each IP to 30 requests per windowMs
-      delayMs: 0,
-      handler: "Rate limt exceeded, please try again later some time.",
+      message: "Rate limt exceeded, please try again later some time.",
+      standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+      legacyHeaders: false, // Disable the `X-RateLimit-*` headers
     });
   }
-  return new RateLimit({
-    windowMs: 5 * 60 * 1000, // 5 minutes
+  return RateLimit({
+    windowMs: 5 * 60 * 1000, // 1 hour
     max: 3000, // limit each IP to 3000 requests per windowMs
-    delayMs: 0,
-    handler: "Rate limt exceeded, please try again later some time.",
+    message: "Rate limt exceeded, please try again later some time.",
+    standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+    legacyHeaders: false, // Disable the `X-RateLimit-*` headers
   });
 };
