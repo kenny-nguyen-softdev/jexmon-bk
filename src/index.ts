@@ -5,6 +5,7 @@ import { WriteStream } from "fs";
 import path from "path";
 import helmet from "helmet";
 import winston from "winston";
+import cors from "cors";
 
 import rateLimiter from "./app/middlewares/rateLimit";
 import { unCoughtErrorHandler } from "./handlers/errorHandler";
@@ -23,6 +24,7 @@ export default class Server {
       path.join(__dirname, "./logs/access.log"),
       { flags: "a" }
     );
+    app.use(cors);
     app.use(morgan("combined", { stream: accessLogStream }));
     app.use(urlencoded({ extended: true }));
     app.use(json());
