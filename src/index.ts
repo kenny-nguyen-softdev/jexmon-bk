@@ -10,11 +10,15 @@ import cors from "cors";
 import rateLimiter from "./app/middlewares/rateLimit";
 import { unCoughtErrorHandler } from "./handlers/errorHandler";
 import Routes from "./routes";
-import mkdirp from "mkdirp";
-const logsDir = __dirname + "/logs";
+const mkdirp = require('mkdirp');
+const logsDir = __dirname + '/logs';
 
 // create logs directory if it doesn't exist
-mkdirp.mkdirp(logsDir);
+mkdirp(logsDir, function(err) {
+  if (err) {
+    console.error(err);
+  }
+});
 
 // app.enable('trust proxy'); // only if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
 
