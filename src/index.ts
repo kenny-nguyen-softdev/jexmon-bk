@@ -7,7 +7,7 @@ import helmet from "helmet";
 // import winston from "winston";
 import cors from "cors";
 
-import rateLimiter from "./app/middlewares/rateLimit";
+// import rateLimiter from "./app/middlewares/rateLimit";
 import { unCoughtErrorHandler } from "./handlers/errorHandler";
 import Routes from "./routes";
 
@@ -29,7 +29,7 @@ export default class Server {
     app.use(urlencoded({ extended: true }));
     app.use(json());
     app.use(helmet());
-    app.use(rateLimiter()); //  apply to all requests
+    // app.use(rateLimiter()); //  apply to all requests
     app.use(unCoughtErrorHandler);
   }
 }
