@@ -9,7 +9,7 @@ const app: Application = express();
 const server: Server = new Server(app);
 const port: any = process.env.PORT || 3000;
 
-app
+const server1 = app
   .listen(port, function () {
     console.info(`Server running on : http://localhost:${port}`);
   })
@@ -20,3 +20,4 @@ app
       console.log(err);
     }
   });
+server1.timeout = 60000; // Set timeout to 60 seconds
