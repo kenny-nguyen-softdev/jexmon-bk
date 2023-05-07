@@ -25,7 +25,7 @@ export default class UserController {
         const response = new BaseResponse({
           message: "Đăng nhập thành công !",
           access_token,
-          name: newUser.fullname,
+          name: newUser.first_name + " " + newUser.last_name,
         });
         response.setHeader("Content-Type", "application/json");
         response.setStatus(201);
@@ -70,7 +70,7 @@ export default class UserController {
           const response = new BaseResponse({
             message: "Đăng nhập thành công !",
             access_token,
-            name: user.name,
+            name: user.first_name + " " + user.last_name,
             id: user.id,
           });
           response.setHeader("Content-Type", "application/json");
