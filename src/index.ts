@@ -1,24 +1,15 @@
 import { Application, urlencoded, json } from "express";
-import morgan from "morgan";
-import fs from "fs";
-import { WriteStream } from "fs";
-import path from "path";
+// import morgan from "morgan";
+// import fs from "fs";
+// import { WriteStream } from "fs";
+// import path from "path";
 import helmet from "helmet";
-import winston from "winston";
+// import winston from "winston";
 import cors from "cors";
 
 import rateLimiter from "./app/middlewares/rateLimit";
 import { unCoughtErrorHandler } from "./handlers/errorHandler";
 import Routes from "./routes";
-const mkdirp = require('mkdirp');
-const logsDir = __dirname + '/logs';
-
-// create logs directory if it doesn't exist
-mkdirp(logsDir, function(err) {
-  if (err) {
-    console.error(err);
-  }
-});
 
 // app.enable('trust proxy'); // only if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
 
@@ -29,12 +20,12 @@ export default class Server {
   }
 
   public config(app: Application): void {
-    const accessLogStream: WriteStream = fs.createWriteStream(
-      path.join(__dirname, "./logs/access.log"),
-      { flags: "a" }
-    );
+    // const accessLogStream: WriteStream = fs.createWriteStream(
+    //   path.join(__dirname, "./logs/access.log"),
+    //   { flags: "a" }
+    // );
     app.use(cors);
-    app.use(morgan("combined", { stream: accessLogStream }));
+    // app.use(morgan("combined", { stream: accessLogStream }));
     app.use(urlencoded({ extended: true }));
     app.use(json());
     app.use(helmet());
@@ -44,6 +35,6 @@ export default class Server {
 }
 
 process.on("beforeExit", function (err) {
-  winston.error(JSON.stringify(err));
+  // winston.error(JSON.stringify(err));
   console.error(err);
 });
