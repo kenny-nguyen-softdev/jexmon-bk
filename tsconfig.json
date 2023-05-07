@@ -1,21 +1,17 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es6",
-    "noImplicitAny": false,
     "sourceMap": true,
-    "strict": true,
-    "allowJs": false
+    "esModuleInterop": true,
+    "allowJs": true,
+    "checkJs": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "lib": ["es2020"],
+    "target": "es2019",
+    "outDir": "./dist",
+    "rootDir": "./"
   },
-  "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/.DS_Store": true,
-    "**/node_modules": true,
-    "**/*.js": {
-      "when": "$(basename).ts"
-    },
-    "**/*.js.map": true
-  }
+  "exclude": [
+    "node_modules"
+  ]
 }

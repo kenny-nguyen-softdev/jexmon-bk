@@ -12,7 +12,7 @@
     "transpile": "tsc",
     "seed": "npm run transpile && node src/db/seed.js",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "start": "node server.js",
+    "start": "node dist/server.js",
     "postinstall": "tsc",
     "deploy": "git add . && git commit -m Heroku && git push heroku master"
   },
