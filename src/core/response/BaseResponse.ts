@@ -17,7 +17,7 @@ export default class BaseResponse {
 
   public build(): any {
     return {
-      statusCode: Number(this.statusCode),
+      statusCode: this.statusCode,
       body: this.body,
       headers: {
         ...this.headers,
