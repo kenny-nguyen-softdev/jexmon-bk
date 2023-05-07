@@ -4,7 +4,7 @@ import fs from "fs";
 import { WriteStream } from "fs";
 import path from "path";
 import helmet from "helmet";
-// import winston from "winston";
+import winston from "winston";
 import cors from "cors";
 
 import rateLimiter from "./app/middlewares/rateLimit";
@@ -20,12 +20,12 @@ export default class Server {
   }
 
   public config(app: Application): void {
-    // const accessLogStream: WriteStream = fs.createWriteStream(
-    //   path.join(__dirname, "./logs/access.log"),
-    //   { flags: "a" }
-    // );
+    const accessLogStream: WriteStream = fs.createWriteStream(
+      path.join(__dirname, "./logs/access.log"),
+      { flags: "a" }
+    );
     app.use(cors);
-    // app.use(morgan("combined", { stream: accessLogStream }));
+    app.use(morgan("combined", { stream: accessLogStream }));
     app.use(urlencoded({ extended: true }));
     app.use(json());
     app.use(helmet());
@@ -35,6 +35,6 @@ export default class Server {
 }
 
 process.on("beforeExit", function (err) {
-  // winston.error(JSON.stringify(err));
+  winston.error(JSON.stringify(err));
   console.error(err);
 });
