@@ -20,12 +20,12 @@ export default class Server {
   }
 
   public config(app: Application): void {
-    const accessLogStream: WriteStream = fs.createWriteStream(
-      path.join(__dirname, "./logs/access.log"),
-      { flags: "a" }
-    );
+    // const accessLogStream: WriteStream = fs.createWriteStream(
+    //   path.join(__dirname, "./logs/access.log"),
+    //   { flags: "a" }
+    // );
     app.use(cors);
-    app.use(morgan("combined", { stream: accessLogStream }));
+    // app.use(morgan("combined", { stream: accessLogStream }));
     app.use(urlencoded({ extended: true }));
     app.use(json());
     app.use(helmet());
