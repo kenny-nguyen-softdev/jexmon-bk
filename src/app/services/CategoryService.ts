@@ -1,9 +1,9 @@
-import Model from "../../models/";
+import Category from "../../models/Category";
 
 class CategoryService {
   fetchAll = async () => {
     try {
-      const categories = await Model.Category.findAll();
+      const categories = await Category.findAll();
 
       return categories;
     } catch (error) {

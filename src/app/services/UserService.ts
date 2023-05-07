@@ -1,4 +1,4 @@
-import Model from "../../models/";
+import User from "../../models/User";
 const bcrypt = require("bcryptjs");
 
 class UserService {
@@ -33,7 +33,7 @@ class UserService {
       // Mã hóa salt + password
       const hashPassword = bcrypt.hashSync(password, salt);
 
-      const newUser = await Model.User.create({
+      const newUser = await User.create({
         first_name,
         last_name,
         email,

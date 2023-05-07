@@ -7,7 +7,7 @@ class UserRouter {
   constructor() {
     this.intializeRoutes();
   }
-  intializeRoutes() {
+  public intializeRoutes(): void {
     this.router.route("/").get((req, res) => {
       res.json("Hello World")
     });

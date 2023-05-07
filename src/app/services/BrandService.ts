@@ -1,9 +1,9 @@
-import Model from "../../models/";
+import Brand from "../../models/Brand";
 
 class BrandService {
   fetchAll = async () => {
     try {
-      const brands = await Model.Brand.findAll();
+      const brands = await Brand.findAll();
 
       return brands;
     } catch (error) {

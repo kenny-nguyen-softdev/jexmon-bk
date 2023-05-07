@@ -34,7 +34,7 @@ export default class Server {
   }
 }
 
-process.on("beforeExit", function (err) {
-  // winston.error(JSON.stringify(err));
-  console.error(err);
-});
+// process.on("beforeExit", function (err) {
+//   // winston.error(JSON.stringify(err));
+//   console.error(err);
+// });
