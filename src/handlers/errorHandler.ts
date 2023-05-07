@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction } from "express";
 import winston from "winston";
 
-// const file = new winston.transports.File({
-//   filename: "../logs/error.log",
-//   level: "error",
-//   handleExceptions: true,
-// });
+const file = new winston.transports.File({
+  filename: "../logs/error.log",
+  level: "error",
+  handleExceptions: true,
+});
 
 export function unCoughtErrorHandler(
   err: any,
