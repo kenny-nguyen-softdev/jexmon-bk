@@ -4,7 +4,7 @@ import fs from "fs";
 import { WriteStream } from "fs";
 import path from "path";
 import helmet from "helmet";
-import winston from "winston";
+// import winston from "winston";
 import cors from "cors";
 
 import rateLimiter from "./app/middlewares/rateLimit";
@@ -35,6 +35,6 @@ export default class Server {
 }
 
 process.on("beforeExit", function (err) {
-  winston.error(JSON.stringify(err));
+  // winston.error(JSON.stringify(err));
   console.error(err);
 });

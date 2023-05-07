@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import winston from "winston";
+// import winston from "winston";
 
 // const file = new winston.transports.File({
 //   filename: "../logs/error.log",
@@ -13,7 +13,7 @@ export function unCoughtErrorHandler(
   res: Response,
   next: NextFunction
 ) {
-  winston.error(JSON.stringify(err));
+  // winston.error(JSON.stringify(err));
   res.end({ error: err });
 }
 
@@ -24,6 +24,6 @@ export function apiErrorHandler(
   message: string
 ) {
   const error: object = { Message: message, Request: req, Stack: err };
-  winston.error(JSON.stringify(error));
+  // winston.error(JSON.stringify(error));
   res.json({ Message: message });
 }
