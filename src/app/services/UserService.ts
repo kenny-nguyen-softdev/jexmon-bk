@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 
 class UserService {
   getUserByEmail = async (email: string) => {
-    const user = await Model.User.findOne({
+    const user = await User.findOne({
       where: {
         email,
       },
