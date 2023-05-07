@@ -3,12 +3,12 @@ import { Application, urlencoded, json } from "express";
 // import fs from "fs";
 // import { WriteStream } from "fs";
 // import path from "path";
-import helmet from "helmet";
+// import helmet from "helmet";
 // import winston from "winston";
 import cors from "cors";
 
 // import rateLimiter from "./app/middlewares/rateLimit";
-import { unCoughtErrorHandler } from "./handlers/errorHandler";
+// import { unCoughtErrorHandler } from "./handlers/errorHandler";
 import Routes from "./routes";
 
 // app.enable('trust proxy'); // only if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
@@ -28,9 +28,9 @@ export default class Server {
     // app.use(morgan("combined", { stream: accessLogStream }));
     app.use(urlencoded({ extended: true }));
     app.use(json());
-    app.use(helmet());
+    // app.use(helmet());
     // app.use(rateLimiter()); //  apply to all requests
-    app.use(unCoughtErrorHandler);
+    // app.use(unCoughtErrorHandler);
   }
 }
 
