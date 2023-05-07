@@ -7,10 +7,10 @@ import Server from "./src/index";
 
 const app: Application = express();
 const server: Server = new Server(app);
-const port: any = process.env.$PORT || 3000;
+const port: any = process.env.PORT || 3000;
 
 app
-  .listen(port, "localhost", function () {
+  .listen(port, function () {
     console.info(`Server running on : http://localhost:${port}`);
   })
   .on("error", (err: any) => {
