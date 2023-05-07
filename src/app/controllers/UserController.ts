@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import logger from "../../core/logger/logger";
 import BaseResponse from "../../core/response/BaseResponse";
 import jwt from "jsonwebtoken";
@@ -8,7 +8,7 @@ import UserService from "../services/UserService";
 export default class UserController {
   constructor() {}
 
-  async signUp(req: Request, res: Response, next: NextFunction) {
+  async signUp(req: Request, res: Response) {
     try {
       const newUser = await UserService.createNewUser(req.body);
 
@@ -48,7 +48,7 @@ export default class UserController {
     }
   }
 
-  async signIn(req: Request, res: Response, next: NextFunction) {
+  async signIn(req: Request, res: Response) {
     try {
       const { email, password } = req.body;
       const user = await UserService.getUserByEmail(email);
