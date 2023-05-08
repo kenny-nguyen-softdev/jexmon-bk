@@ -16,7 +16,7 @@ import Routes from "./routes";
 export default class Server {
   constructor(app: Application) {
     this.config(app);
-    new Routes(app);
+    // new Routes(app);
   }
 
   public config(app: Application): void {
@@ -26,6 +26,9 @@ export default class Server {
     // );
     app.get("/", (req, res) => {
       res.json("home");
+    });
+    app.get("/api/user", (req, res) => {
+      res.json("/api/user");
     });
     app.use(cors);
     // app.use(morgan("combined", { stream: accessLogStream }));
