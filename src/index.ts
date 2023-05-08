@@ -30,15 +30,14 @@ export default class Server {
     app.get("/", (req, res) => {
       res.json("home");
     });
-
+    app.use("/api/user", UserRouter);
+    app.use("/api/category", CategoryRouter);
+    app.use("/api/brand", BrandRouter);
     app.use(cors);
     // app.use(morgan("combined", { stream: accessLogStream }));
     app.use(urlencoded({ extended: true }));
     app.use(json());
 
-    app.use("/api/user", UserRouter);
-    app.use("/api/category", CategoryRouter);
-    app.use("/api/brand", BrandRouter);
     // app.use(helmet());
     // app.use(rateLimiter()); //  apply to all requests
     // app.use(unCoughtErrorHandler);

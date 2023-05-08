@@ -1,20 +1,16 @@
 import { Router } from "express";
 import UserController from '../app/controllers/UserController';
 class UserRouter {
-  public router;
-  protected userController;
+  public router = Router();
+  protected userController = new UserController();
 
   constructor() {
-    this.router = Router();
-    this.userController = new UserController();
     this.intializeRoutes();
   }
 
   public intializeRoutes(): void {
-    this.router
-      .post("/sign-up", this.userController.signUp);
-    this.router
-      .post("/sign-in", this.userController.signIn);
+    this.router.post("/sign-up", this.userController.signUp);
+    this.router.post("/sign-in", this.userController.signIn);
   }
 }
 
