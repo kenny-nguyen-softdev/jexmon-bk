@@ -8,7 +8,7 @@ class BrandRouter {
     this.intializeRoutes();
   }
   intializeRoutes() {
-    this.router.route("/").get(this.brandController.getAllList);
+    this.router.get("/", this.brandController.getAllList);
   }
 }
 

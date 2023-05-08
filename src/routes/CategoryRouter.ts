@@ -8,7 +8,7 @@ class CategoryRouter {
     this.intializeRoutes();
   }
   intializeRoutes() {
-    this.router.route("/").get(this.categoryController.getAllList);
+    this.router.get("/", this.categoryController.getAllList);
   }
 }
 
