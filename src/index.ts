@@ -27,16 +27,13 @@ export default class Server {
     //   path.join(__dirname, "./logs/access.log"),
     //   { flags: "a" }
     // );
-    app.get("/", (req, res) => {
-      res.json("home");
-    });
     app.use("/api/user", UserRouter);
     app.use("/api/category", CategoryRouter);
     app.use("/api/brand", BrandRouter);
     app.use(cors);
     // app.use(morgan("combined", { stream: accessLogStream }));
-    app.use(urlencoded({ extended: true }));
-    app.use(json());
+    // app.use(urlencoded({ extended: true }));
+    // app.use(json());
 
     // app.use(helmet());
     // app.use(rateLimiter()); //  apply to all requests

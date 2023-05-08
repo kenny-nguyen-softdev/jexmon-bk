@@ -6,10 +6,11 @@ import { Application } from "express";
 import Server from "./src/index";
 
 const app: Application = express();
+app.use(express.json());
 const server: Server = new Server(app);
 const port: any = process.env.PORT || 3000;
 
-const server1 = app
+app
   .listen(port, function () {
     console.info(`Server running on : http://localhost:${port}`);
   })
@@ -20,4 +21,3 @@ const server1 = app
       console.log(err);
     }
   });
-server1.timeout = 60000; // Set timeout to 60 seconds

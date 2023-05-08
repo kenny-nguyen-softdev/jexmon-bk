@@ -94,7 +94,7 @@ export default class UserController {
       }
     } catch (error) {
       logger.error(error);
-      const response = new BaseResponse(error);
+      const response = new BaseResponse(error.message);
       response.setHeader("Content-Type", "application/json");
       response.setStatus(500);
       res.status(500).json(response.build());
