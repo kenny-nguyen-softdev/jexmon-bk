@@ -16,7 +16,7 @@ import Routes from "./routes";
 export default class Server {
   constructor(app: Application) {
     this.config(app);
-    new Routes(app);
+    // new Routes(app);
   }
 
   public config(app: Application): void {
@@ -24,6 +24,9 @@ export default class Server {
     //   path.join(__dirname, "./logs/access.log"),
     //   { flags: "a" }
     // );
+    app.get("/", (req, res) => {
+      res.json("home");
+    });
     app.use(cors);
     // app.use(morgan("combined", { stream: accessLogStream }));
     app.use(urlencoded({ extended: true }));
