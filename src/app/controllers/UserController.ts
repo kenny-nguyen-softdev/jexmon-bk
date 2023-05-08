@@ -1,15 +1,24 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import logger from "../../core/logger/logger";
 import BaseResponse from "../../core/response/BaseResponse";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import UserService from "../services/UserService";
-
+function savePost(post, cb) {
+  setTimeout(function () {
+    cb(null, (Math.random() * 40000) >>> 0);
+  }, (Math.random() * 7000) >>> 0);
+}
 export default class UserController {
   constructor() {}
 
-  async signUp(req: Request, res: Response) {
+  async signUp(req: Request, res: Response, next: NextFunction) {
     try {
+      savePost(req.body, function (err, id) {
+        if (err) return next(err);
+        res.send("saved as id " + id);
+      });
+
       const newUser = await UserService.createNewUser(req.body);
 
       if (newUser) {
@@ -48,7 +57,12 @@ export default class UserController {
     }
   }
 
-  async signIn(req: Request, res: Response) {
+  async signIn(req: Request, res: Response, next: NextFunction) {
+   savePost(req.body, function (err, id) {
+     if (err) return next(err);
+     res.send("saved as id " + id);
+   });
+
     try {
       const { email, password } = req.body;
       const user = await UserService.getUserByEmail(email);
@@ -77,12 +91,12 @@ export default class UserController {
           response.setStatus(200);
           res.status(200).json(response.build());
         } else {
-            const response = new BaseResponse({
-              message: "Tài khoản hoặc mật khẩu không đúng !!!",
-            });
-            response.setHeader("Content-Type", "application/json");
-            response.setStatus(500);
-            res.status(500).json(response.build());
+          const response = new BaseResponse({
+            message: "Tài khoản hoặc mật khẩu không đúng !!!",
+          });
+          response.setHeader("Content-Type", "application/json");
+          response.setStatus(500);
+          res.status(500).json(response.build());
         }
       } else {
         const response = new BaseResponse({

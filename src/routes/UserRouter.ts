@@ -1,5 +1,6 @@
 import { Router } from "express";
 import UserController from '../app/controllers/UserController';
+import timeout from "connect-timeout";
 
 class UserRouter {
   public router;
@@ -12,9 +13,16 @@ class UserRouter {
   }
 
   public intializeRoutes(): void {
-    this.router.route("/sign-up").post(this.userController.signUp);
-    this.router.route("/sign-in").post(this.userController.signIn);
+    this.router
+      .route("/sign-up")
+      .post(timeout("5s"), haltOnTimedout, this.userController.signUp);
+    this.router
+      .route("/sign-in")
+      .post(timeout("5s"), haltOnTimedout, this.userController.signIn);
   }
+}
+function haltOnTimedout(req, res, next) {
+  if (!req.timedout) next();
 }
 
 export default new UserRouter().router;
