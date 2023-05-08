@@ -10,6 +10,7 @@ import cors from "cors";
 // import rateLimiter from "./app/middlewares/rateLimit";
 // import { unCoughtErrorHandler } from "./handlers/errorHandler";
 import Routes from "./routes";
+import timeout from "connect-timeout";
 
 // app.enable('trust proxy'); // only if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
 
@@ -31,7 +32,12 @@ export default class Server {
     // app.use(helmet());
     // app.use(rateLimiter()); //  apply to all requests
     // app.use(unCoughtErrorHandler);
+    app.use(haltOnTimedout);
   }
+}
+
+function haltOnTimedout(req, res, next) {
+  if (!req.timedout) next();
 }
 
 // process.on("beforeExit", function (err) {
