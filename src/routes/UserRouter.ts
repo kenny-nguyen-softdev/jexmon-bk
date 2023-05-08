@@ -1,11 +1,12 @@
-import { Router } from "express";
+import express from "express";
+const router = express.Router();
 import UserController from '../app/controllers/UserController';
 class UserRouter {
   public router;
   protected userController;
 
   constructor() {
-    this.router = Router();
+    this.router = router;
     this.userController = new UserController();
     this.intializeRoutes();
   }
