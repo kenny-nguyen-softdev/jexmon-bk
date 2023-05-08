@@ -4,7 +4,7 @@ import CategoryRouter from "./CategoryRouter";
 import BrandRouter from "./BrandRouter";
 export default class Routes {
   constructor(app: Application) {
-    app.use("/api/user", (req, res) => {
+    app.get("/api/user", (req, res) => {
       res.json("/api/user");
     });
     app.use("/api/category", CategoryRouter);
