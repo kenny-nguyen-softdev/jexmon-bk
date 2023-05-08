@@ -10,6 +10,9 @@ import cors from "cors";
 // import rateLimiter from "./app/middlewares/rateLimit";
 // import { unCoughtErrorHandler } from "./handlers/errorHandler";
 import Routes from "./routes";
+import UserRouter from "./routes/UserRouter";
+import CategoryRouter from "./routes/CategoryRouter";
+import BrandRouter from "./routes/BrandRouter";
 
 // app.enable('trust proxy'); // only if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
 
@@ -27,13 +30,15 @@ export default class Server {
     app.get("/", (req, res) => {
       res.json("home");
     });
-    app.get("/api/user", (req, res) => {
-      res.json("/api/user");
-    });
+
     app.use(cors);
     // app.use(morgan("combined", { stream: accessLogStream }));
     app.use(urlencoded({ extended: true }));
     app.use(json());
+
+    app.use("/api/user", UserRouter);
+    app.use("/api/category", CategoryRouter);
+    app.use("/api/brand", BrandRouter);
     // app.use(helmet());
     // app.use(rateLimiter()); //  apply to all requests
     // app.use(unCoughtErrorHandler);
